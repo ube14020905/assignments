@@ -76,38 +76,43 @@ class Library {
             if (books[i].getAuthor().equalsIgnoreCase(author)) {
                 books[i].displayBookDetails();
                 System.out.println();
-            }
-        }
-    }
-
-    public void removeBookByIsbn(String isbn) {
-        for (int i = 0; i < bookCount; i++) {
-            if (books[i].getIsbn().equals(isbn)) {
-                System.out.println("Book removed from the library:");
-                books[i].displayBookDetails();
-                books[i] = null;
-                bookCount--;
-                for (int j = i; j < bookCount; j++) {
-                    books[j] = books[j + 1];
-                }
                 return;
             }
         }
-        System.out.println("Book with ISBN " + isbn + " not found in the library.");
+        System.out.println("No book Found ");
     }
-}
 
+    public void removeBookByIsbn(String isbn) {
+    	if(bookCount==0) {
+    		System.out.println("Nothing to delete here");
+    	}
+    	else {
+    		for (int i = 0; i < bookCount; i++) {
+    			if (books[i].getIsbn().equals(isbn)) {
+    				System.out.println("Book removed from the library:");
+    				books[i].displayBookDetails();
+    				books[i] = null;
+    				bookCount--;
+    				for (int j = i; j < bookCount; j++) {
+    					books[j] = books[j + 1];
+    				}
+    				return;
+    			}
+    		}
+    		System.out.println("Book with ISBN " + isbn + " not found in the library.");
+    	}
+    }
+    	
+}
 public class LibrarySystem {
     public static void main(String[] args) {
         Scanner s=new Scanner(System.in);
     	System.out.println("Enter the capacity of Library: ");
         int c=s.nextInt();
     	Library library = new Library(c);
-    	int i=1;
     	while(true) {
     		System.out.println("1.ADD BOOK \n2.ADD EBOOK \n3.DISPLAY ALL BOOKS \n4.SEARCH A BOOK \n5.DELETE A BOOK \n6.EXIT");
         	int choice=s.nextInt();
-        	i=choice;
         	switch(choice) {
         	case(1):{
         		System.out.println("Enter the name,author,isbn details of book: ");
@@ -133,11 +138,15 @@ public class LibrarySystem {
         	}
         	break;
         	case(4):{
-        		library.findBooksByAuthor("John Doe");
+        		System.out.println("Enter the author name to search");
+        		String a=s.nextLine();
+        		library.findBooksByAuthor(a);
         	}
         	break;
         	case(5):{
-        		 library.removeBookByIsbn("123456");
+        		System.out.println("Enter the ISBN number to delete book");
+        		String a=s.nextLine();
+        		library.removeBookByIsbn(a);
         	}
         	break;
         	case(6):{
