@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 class Book {
     private String title;
     private String author;
@@ -102,7 +101,6 @@ class Library {
     		System.out.println("Book with ISBN " + isbn + " not found in the library.");
     	}
     }
-    	
 }
 public class LibrarySystem {
     public static void main(String[] args) {
@@ -113,6 +111,7 @@ public class LibrarySystem {
     	while(true) {
     		System.out.println("1.ADD BOOK \n2.ADD EBOOK \n3.DISPLAY ALL BOOKS \n4.SEARCH A BOOK \n5.DELETE A BOOK \n6.EXIT");
         	int choice=s.nextInt();
+        	s.nextLine();
         	switch(choice) {
         	case(1):{
         		System.out.println("Enter the name,author,isbn details of book: ");
