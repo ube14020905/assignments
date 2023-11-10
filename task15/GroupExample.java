@@ -17,16 +17,7 @@ public class GroupExample {
         thread1.start();
         thread2.start();
         thread3.start();
-        displayThreadGroupDetails(group);
+        group.list();
     }
-    private static void displayThreadGroupDetails(ThreadGroup group) {
-        System.out.println("Thread Group Name: " + group.getName());
-        System.out.println("Thread Group Active Count: " + group.activeCount());
-        Thread[] threads = new Thread[group.activeCount()];
-        group.enumerate(threads);
-        System.out.println("Threads in Thread Group:");
-        for (Thread thread : threads) {
-            System.out.println(" - " + thread.getName());
-        }
-    }
+
 }
