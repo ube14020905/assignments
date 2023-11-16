@@ -1,10 +1,13 @@
+import java.util.Scanner;
 class Sender extends Thread {
     private final Message message;
     public Sender(Message message) {
         this.message = message;
     }
     public void run() {
-        String[] messages = {"Hello", "How are you?", "How's the josh","Goodbye"};
+        Scanner s= new Scanner(System.in);
+        System.out.println("Enter String separated by comma: ");
+        String[] messages =s.nextLine().split(",");
         for (String msg : messages) {
             message.writeMessage(msg);
             System.out.println("Sent: " + msg);
@@ -14,6 +17,8 @@ class Sender extends Thread {
                 Thread.currentThread().interrupt();
             }
         }
+        message.writeMessage(null);
+        s.close();
     }
 }
 class Receiver extends Thread {
@@ -22,9 +27,14 @@ class Receiver extends Thread {
         this.message = message;
     }
     public void run() {
-        for (int i = 0; i < 3; i++) {
+        while(true){
             String receivedMessage = message.readMessage();
-            System.out.println("Received: " + receivedMessage);
+            if(receivedMessage==null){
+                break;
+            }
+            else {
+                System.out.println("Received: " + receivedMessage);
+            }
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -33,15 +43,19 @@ class Receiver extends Thread {
         }
     }
 }
-
 public class Messenger {
     public static void main(String[] args) {
         Message message = new Message();
-
         Sender sender = new Sender(message);
         Receiver receiver = new Receiver(message);
 
         sender.start();
         receiver.start();
+        try{
+            sender.join();
+            receiver.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
