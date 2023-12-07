@@ -7,9 +7,9 @@ private:
     int age;
 
 public:
-    Person(const std::string& initialName, int initialAge) {
-        name = initialName;
-        age = initialAge;
+    Person(const std::string& Name, int Age) {
+        name = Name;
+        age = Age;
     }
     void display() const {
         std::cout << "Name: " << name << ", Age: " << age << std::endl;
