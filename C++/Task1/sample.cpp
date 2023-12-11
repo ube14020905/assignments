@@ -3,24 +3,23 @@
 using namespace std;
 class Person {
 private:
-    std::string name;
+    string name;
     int age;
-
 public:
-    Person(const std::string& Name, int Age) {
+    Person(const string& Name, int Age) {
         name = Name;
         age = Age;
     }
     void display() const {
-        std::cout << "Name: " << name << ", Age: " << age << std::endl;
+        cout << "Name: " << name << ", Age: " << age << endl;
     }
 };
 int main() {
     Person p1("Shaik", 21);
     Person p2("Stark", 22);
-    std::cout << "Person 1 Information:" << std::endl;
+    cout << "Person 1 Information:" << endl;
     p1.display();
-    std::cout << "\nPerson 2 Information:" << std::endl;
+    cout << "\nPerson 2 Information:" << endl;
     p2.display();
     return 0;
 }
