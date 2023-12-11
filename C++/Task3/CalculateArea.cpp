@@ -5,7 +5,7 @@ using namespace std;
 class Shape
 {
 public:
-    virtual void area(void) = 0;
+    void area(void);
 };
 
 class Rectangle : public Shape
