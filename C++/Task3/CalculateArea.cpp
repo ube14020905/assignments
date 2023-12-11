@@ -1,13 +1,14 @@
 #include<iostream>
-
 using namespace std;
-
 class Shape
 {
 public:
-    void area(void);
+    virtual void area(void) = 0;
+    void display(){
+        cout<<"Shape: ";
+        area();
+    }
 };
-
 class Rectangle : public Shape
 {
 private:
@@ -20,7 +21,7 @@ public:
         l = x;
         b = y;
     }
-    void area(void)
+    void area()
     {
         cout << "Area of rectangle: " << l * b << endl;
     }
@@ -43,15 +44,15 @@ public:
         cout << "Area of Circle: " << ar << endl;
     }
 };
+
 int main()
 {
     Rectangle rec(4, 5);
     Circle cir(3);
     cout << "Rectangle ";
-    rec.area();
+    rec.display();
 
     cout << "Circle ";
-    cir.area();
-
+    cir.display();
     return 0;
 }
