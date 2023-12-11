@@ -23,12 +23,10 @@ public:
 
 int main() {
     Person p1("Shaik", 21);
-    Person p2 = p1;
-
     cout << "Person 1 Information:" << endl;
     p1.display();
-
-    std::cout << "\nPerson 2 (Copy of P1) Information:" << std::endl;
+    Person p2 = p1;
+    cout << "\nPerson 2 (Copy of P1) Information:" << endl;
     p2.display();
     return 0;
 }
