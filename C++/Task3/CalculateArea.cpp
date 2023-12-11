@@ -23,6 +23,7 @@ public:
     }
     void area()
     {
+        cout << "Rectangle"<< endl;
         cout << "Area of rectangle: " << l * b << endl;
     }
 };
@@ -41,6 +42,7 @@ public:
     {
         double pi = 22.0 / 7.0;
         double ar = pi * r * r;
+        cout << "Circle" << endl;
         cout << "Area of Circle: " << ar << endl;
     }
 };
@@ -49,10 +51,7 @@ int main()
 {
     Rectangle rec(4, 5);
     Circle cir(3);
-    cout << "Rectangle ";
     rec.display();
-
-    cout << "Circle ";
     cir.display();
     return 0;
 }
