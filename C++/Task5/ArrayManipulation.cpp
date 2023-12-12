@@ -7,8 +7,9 @@ class ArrayOps
         int ar[100];  
     public:
         int sortedArr[100]; 
-        ArrayOps(int a){
-            size=a;
+        ArrayOps(){
+            cout<<"Enter the Size of Array: "<<endl;
+            cin>>size;
             cout<<"Add elements to array: "<<endl;
             for(int i=0;i<size;i++){
                 cin>>ar[i];
@@ -17,7 +18,7 @@ class ArrayOps
         void originalArray(void){
             cout<<"Original Array: ";
             for(int i=0;i<size;i++){
-                cout<<ar[i]<<"\t";
+                cout<<ar[i]<<"  ";
             }
             cout<<endl;
         }
@@ -40,7 +41,7 @@ class ArrayOps
             sorted();
             cout<<"Sorted Array: ";
             for(int i=0;i<size;i++){
-                cout<<sortedArr[i]<<"\t";
+                cout<<sortedArr[i]<<"  ";
             }
             cout<<endl;
         }
@@ -57,7 +58,7 @@ class ArrayOps
             cin>>a;
             for(int i=0;i<size;i++){
                 if(ar[i]==a){
-                    cout<<a<<" Found at "<<i+1<<endl;
+                    cout<<a<<" Found at "<<(i+1)<<"th Place"<<endl;
                     return;
                 }
             }
@@ -67,14 +68,13 @@ class ArrayOps
             sorted();
             cout<<sortedArr[size-1]<<" Is the max value in the array"<<endl;
         }
-
 };
 main(){
-    ArrayOps a(5);
+    ArrayOps a;
     a.originalArray();
-    a.max();
     a.printSorted();
     a.sum();
+    a.max();
     a.search();
     return 0;   
-}
+} 
