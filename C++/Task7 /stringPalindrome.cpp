@@ -20,10 +20,10 @@ bool isPalin(string &str) {
     return true;
 }
 int main() {
-    string s;
+    string palin;
     cout << "Enter a string: ";
-    getline(cin, s);
-    if (isPalin(s)) {
+    getline(cin, palin);
+    if (isPalin(palin)) {
         cout << "PALINDROME" << endl;
     } else {
         cout << "NOT A PALINDROME" << endl;
