@@ -52,6 +52,7 @@ void AssignmentOps()
 	cout << "After /= 2 : " << x << endl;
 	x %= 5;
 	cout << "After %= 5 : " << x << endl;
+	cout << "Final Value of X: " << x << endl;
 }
 main()
 {
