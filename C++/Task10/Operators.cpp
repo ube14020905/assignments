@@ -35,8 +35,8 @@ void LogicalOps()
 	cin >> b1 >> b2;
 	cout << "Logical AND b1 && b2 :" << (b1 && b2) << endl;
 	cout << "Logical OR b1 || b2 :" << (b1 || b2) << endl;
-	cout << "Logical NOT for !B1: " << (!b1) << endl;
-	cout << "Logical NOT for !B2: " << (!b2) << endl;
+	cout << "Logical NOT for !b1: " << (!b1) << endl;
+	cout << "Logical NOT for !b2: " << (!b2) << endl;
 }
 void AssignmentOps()
 {
