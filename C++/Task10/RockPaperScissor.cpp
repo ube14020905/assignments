@@ -44,7 +44,7 @@ string result(string usrChoice,string sysChoice){
 main(){
 	int rounds,usr_res=0,sys_res=0;
 	cout<<"Welcome to the game Rock,Paper,Scissor!"<<endl;
-	cout<<"Enter number of games in this series:";
+	cout<<"Enter number of games in the series:";
 	cin>>rounds;
 	for(int i=0;i<rounds;i++){
 		string user=userChoice();
@@ -58,6 +58,7 @@ main(){
 		else if(res=="Computer Wins!"){
 	 		sys_res++;
 		}
+		cout<<"Current Scores:\nUser: "<<usr_res<<endl<<"Computer: "<<sys_res<<endl;
 	}
 	if(usr_res==sys_res){
 		cout<<"Series Draw"<<endl;
