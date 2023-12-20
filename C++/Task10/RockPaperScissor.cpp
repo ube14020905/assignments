@@ -23,7 +23,7 @@ string systemChoice(){
 }
 string userChoice(){
 	string choice;
-	cout<<"Enter Your Choice:";
+	cout<<"Enter Your Choice (rock,paper,scissor) in either case: ";
 	cin>>choice;
 	for(char& c:choice){
 		c=tolower(c);
@@ -43,20 +43,19 @@ string result(string usrChoice,string sysChoice){
 }
 main(){
 	int rounds,usr_res=0,sys_res=0;
-	cout<<"Enter number of games in the series:";
+	cout<<"Welcome to the game Rock,Paper,Scissor!"<<endl;
+	cout<<"Enter number of games in this series:";
 	cin>>rounds;
 	for(int i=0;i<rounds;i++){
 		string user=userChoice();
 		string system=systemChoice();
+		cout<<"Computer choice:"<<system<<endl;
 		string res=result(user,system);
 		cout<<res<<endl;
 		if(res=="You Win!"){
 			usr_res++;
 		}
-		else if(res=="It's tie"){
-		       continue;
-		}
-		else{
+		else if(res=="Computer Wins!"){
 	 		sys_res++;
 		}
 	}
@@ -64,10 +63,10 @@ main(){
 		cout<<"Series Draw"<<endl;
 	}
 	else if(usr_res>sys_res){
-		cout<<"User Wins the series"<<endl;
+		cout<<"You Won the series with "<<(usr_res-sys_res)<<" Win(s) Lead"<<endl;
 	}
 	else{
-		cout<<"Computer Wins the series"<<endl;
+		cout<<"Computer Won the series with "<<(sys_res-usr_res)<< " Win(s) Lead" <<endl;
 	}
 	return 0;
 }
