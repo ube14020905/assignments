@@ -1,8 +1,10 @@
 #include<iostream>
 #include<cstdlib>
 #include<cctype>
+#include<ctime>
 using namespace std;
 string systemChoice(){
+	srand(static_cast<unsigned int>(time(nullptr)));
 	int choice=rand()%3;
 	switch(choice){
 		case 0:{
@@ -29,14 +31,14 @@ string userChoice(){
 	return choice;
 }
 string result(string usrChoice,string sysChoice){
-	if((usrChoice == "rock" && sysChoice == "scissor")||(usrChoice == "scissor" && sysChoice == "paper")||(usrChoice =="paper" && sysChoice == "rock")){
+	if(usrChoice==sysChoice){
+		return "it's tie";
+	}
+	else if((usrChoice == "rock" && sysChoice == "scissor")||(usrChoice == "scissor" && sysChoice == "paper")||(usrChoice =="paper" && sysChoice == "rock")){
 		return "You Win!";
 	}
-	else if((usrChoice == "rock" && sysChoice == "paper")||(usrChoice == "scissor" && sysChoice == "rock")||(usrChoice =="paper" && sysChoice == "scissor")){
-		return "Computer Wins!";
-	}
 	else{
-		return "it's tie";
+		return "Computer Wins!";
 	}
 }
 main(){
