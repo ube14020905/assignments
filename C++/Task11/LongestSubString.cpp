@@ -2,16 +2,16 @@
 #include <string>
 using namespace std;
 
-string longestSubstring(const string &s)
+string longestSubstring(const string &str)
 {
 	int start = 0, max_length = 0;
 	int char_index[256];
 	fill_n(char_index, 256, -1);
 
-	for (int end = 0, current_start = 0; end < s.length(); ++end)
+	for (int end = 0, current_start = 0; end < str.length(); ++end)
 	{
-		current_start = max(char_index[char(s[end])] + 1, current_start);
-		char_index[char(s[end])] = end;
+		current_start = max(char_index[char(str[end])] + 1, current_start);
+		char_index[char(str[end])] = end;
 
 		if (end - current_start + 1 > max_length)
 		{
@@ -20,17 +20,17 @@ string longestSubstring(const string &s)
 		}
 	}
 
-	return s.substr(start, max_length);
+	return str.substr(start, max_length);
 }
 
 int main()
 {
-	string input_string;
+	string str;
 	cout << "Enter the string: ";
-	cin >> input_string;
+	cin >> str;
 
-	string result = longestSubstring(input_string);
-	cout << "Longest Substring with Unique Characters: " << result << endl;
+	string result = longestSubstring(str);
+	cout << "Longest Substring: " << result << endl;
 
 	return 0;
 }
