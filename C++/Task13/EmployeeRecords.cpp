@@ -2,12 +2,12 @@
 #include<string>
 using namespace std;
 const int Max_Emp=100;
-union Employee
+struct Employee
 {
 	int empId;
-	char name[50];
+	string name;
 	double salary;
-	char dept[50];
+	string dept;
 };
 void addEmployee(Employee database[],int& count){
 	if(count<Max_Emp){
