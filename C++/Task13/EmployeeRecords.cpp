@@ -1,65 +1,81 @@
-#include<iostream>
-#include<string>
+#include <iostream>
 using namespace std;
-const int Max_Emp=100;
-struct Employee
+const int Max_Emp = 100;
+struct Employee_Info
 {
 	int empId;
-	string name;
+	char name[50];
 	double salary;
-	string dept;
+	char dept[50];
 };
-void addEmployee(Employee database[],int& count){
-	if(count<Max_Emp){
-		cout<<"Enter the Details of Employee(Id, name, salary, department): ";
-		cin>>database[count].empId>>database[count].name>>database[count].salary>>database[count].dept;
-		cout<<"One Employee is Add to the Database"<<endl;
+union Employee
+{
+	Employee_Info info;
+};
+void addEmployee(Employee database[], int &count)
+{
+	if (count < Max_Emp)
+	{
+		cout << "Enter the Details of Employee(Id, name, salary, department): ";
+		cin >> database[count].info.empId >> database[count].info.name >> database[count].info.salary >> database[count].info.dept;
+		cout << "One Employee is Add to the Database" << endl;
 		count++;
 	}
-	else{
-		cout<<"The DataBase is Full!"<<endl;
+	else
+	{
+		cout << "The DataBase is Full!" << endl;
 	}
 }
-void searchById(Employee database[],int count){
+void searchById(Employee database[], int count)
+{
 	int id;
-	cout<<"Enter the Id of employee: "<<endl;
-	cin>>id;
-	for(int i=0;i<count;i++){
-		if(database[i].empId==id){
-			cout<<"Employee found!!"<<endl;
-			cout<<"Employee id: "<<database[i].empId<<endl
-				<<"Employee name: "<<database[i].name<<endl
-				<<"Employee Salary: "<<database[i].salary<<endl
-				<<"Department: "<<database[i].dept<<endl;
+	cout << "Enter the Id of employee: " << endl;
+	cin >> id;
+	for (int i = 0; i < count; i++)
+	{
+		if (database[i].info.empId == id)
+		{
+			cout << "Employee found!!" << endl;
+			cout << "Employee id: " << database[i].info.empId << endl
+				 << "Employee name: " << database[i].info.name << endl
+				 << "Employee Salary: " << database[i].info.salary << endl
+				 << "Department: " << database[i].info.dept << endl;
 			return;
 		}
 	}
-	cout<<"No Record found with that ID!!!"<<endl;
+	cout << "No Record found with that ID!!!" << endl;
 }
-void updateSalary(Employee database[],int count){
+void updateSalary(Employee database[], int count)
+{
 	int id;
-	cout<<"Enter the Id of Employee to Update Salary: ";
-	cin>>id;
-	for(int i=0;i<count;i++){
-		if(database[i].empId==id){
-			cout<<"Enter the Salary to Update: ";
-			cin>>database[i].salary;
+	cout << "Enter the Id of Employee to Update Salary: ";
+	cin >> id;
+	for (int i = 0; i < count; i++)
+	{
+		if (database[i].info.empId == id)
+		{
+			cout << "Enter the Salary to Update: ";
+			cin >> database[i].info.salary;
 			return;
 		}
 	}
-	cout<<"No Employee found with that ID!!!"<<endl;
+	cout << "No Employee found with that ID!!!" << endl;
 }
-void displayAllEmployees(Employee database[],int count){
-	cout<<"Employee Database!!"<<endl;
-	for(int i=0;i<count;i++){
-		cout<<"Employee id: "<<database[i].empId<<endl
-			<<"Employee name: "<<database[i].name<<endl
-			<<"Employee Salary: "<<database[i].salary<<endl
-			<<"Department: "<<database[i].dept<<endl<<endl;
+void displayAllEmployees(Employee database[], int count)
+{
+	cout << "Employee Database!!" << endl;
+	for (int i = 0; i < count; i++)
+	{
+		cout << "Employee id: " << database[i].info.empId << endl
+			 << "Employee name: " << database[i].info.name << endl
+			 << "Employee Salary: " << database[i].info.salary << endl
+			 << "Department: " << database[i].info.dept << endl
+			 << endl;
 	}
 }
-int main(){
-	
+int main()
+{
+
 	int count = 0;
 	int choice;
 	Employee database[Max_Emp];
@@ -70,7 +86,7 @@ int main(){
 			 << "3.Update Salary" << endl
 			 << "4.Display all Employees" << endl
 			 << "5.Exit" << endl;
-		cout<<"Enter your choice: ";
+		cout << "Enter your choice: ";
 		cin >> choice;
 		switch (choice)
 		{
