@@ -25,16 +25,19 @@ void stringRev(string *str)
 }
 int main()
 {
-	string str1, str2;
+	string str1, str2,str3;
 	cout << "Enter String 1: ";
 	cin >> str1;
 	cout << "Length of Given String 1: " << stringLen(&str1) << endl;
 	cout << "Enter String 2: ";
 	cin >> str2;
+	str3=str1;
 	cout << "Length of Given String 2: " << stringLen(&str2) << endl;
 	stringConcate(&str1, &str2);
 	cout << "Concate of Two strings: " << str1 << endl;
-	stringRev(&str1);
-	cout << "Reverse of concated string: " << str1 << endl;
+	stringRev(&str3);
+	cout << "Reverse of string 1: " << str3 << endl;
+	stringRev(&str2);
+	cout << "Reverse of string 2: " << str2 << endl;
 	return 0;
 }
