@@ -40,7 +40,7 @@ public:
 	}
 	void setAtIndex(int index)
 	{
-		if (index < 0 || index >= 0)
+		if (index < 0 || index >= size)
 		{
 			throw out_of_range("Please Enter index from zero to size-1");
 		}
@@ -62,10 +62,12 @@ int main()
 		int index;
 		cout << "Enter The Index to search: ";
 		cin >> index;
-		arr.intAtIndex(index);
-		cout << "Enter the Index to change the Value; ";
+		cout << "The Value at the Index " << index << " : " << arr.intAtIndex(index) << endl;
+		cout << "Enter the Index to change the Value: ";
 		cin >> index;
 		arr.setAtIndex(index);
+		cout << "The integers After Changes!" << endl;
+		arr.DisplayArray();
 	}
 	catch (out_of_range e)
 	{
