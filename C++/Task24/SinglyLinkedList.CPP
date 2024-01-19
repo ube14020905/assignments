@@ -33,8 +33,12 @@ void insertNode(Node *&head)
 
 void displayList(Node *&head)
 {
+	if(!head){
+		cout<<"The List is Empty!!!"<<endl;
+		return;
+	}
 	Node *currentNode = head;
-	cout << "Integers present in the list: ";
+	cout << "Integers present in the list:\t";
 	while (currentNode)
 	{
 		cout << currentNode->data << "\t";
