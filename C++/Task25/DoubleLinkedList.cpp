@@ -55,7 +55,7 @@ void searchValue(Node *&head)
 void displayFromFront(Node *&head)
 {
 	if (!head)
-	{
+	{s
 		cout << "The List is Empty" << endl;
 		return;
 	}
@@ -92,13 +92,13 @@ void deleteNode(Node *&head)
 {
 	if (!head)
 	{
-		std::cout << "The List is Empty!!" << std::endl;
+		cout << "The List is Empty!!" << endl;
 		return;
 	}
 
 	int value;
-	std::cout << "Enter Value to delete: ";
-	std::cin >> value;
+	cout << "Enter Value to delete: ";
+	cin >> value;
 
 	Node *currentNode = head;
 
@@ -124,11 +124,11 @@ void deleteNode(Node *&head)
 		}
 
 		delete currentNode;
-		std::cout << "The node with Value: " << value << " is deleted" << std::endl;
+		cout << "The node with Value: " << value << " is deleted" << endl;
 	}
 	else
 	{
-		std::cout << "No such Value present in the list!!!" << std::endl;
+		cout << "No such Value present in the list!!!" << endl;
 	}
 }
 int main()
