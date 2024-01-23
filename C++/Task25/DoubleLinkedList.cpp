@@ -29,7 +29,7 @@ void insertNode(Node *&head)
 		currentNode->next = newNode;
 		newNode->prev = currentNode;
 	}
-	cout << "One Node Inserted!!" << endl;
+	cout << "One Node Inserted!!!" << endl;
 }
 void searchValue(Node *&head)
 {
@@ -55,8 +55,8 @@ void searchValue(Node *&head)
 void displayFromFront(Node *&head)
 {
 	if (!head)
-	{s
-		cout << "The List is Empty" << endl;
+	{
+		cout << "The List is Empty!!!" << endl;
 		return;
 	}
 	Node *currentNode = head;
@@ -72,7 +72,7 @@ void displayFromBack(Node *&head)
 {
 	if (!head)
 	{
-		cout << "The List is Empty" << endl;
+		cout << "The List is Empty!!!" << endl;
 		return;
 	}
 	Node *currentNode = head;
@@ -92,7 +92,7 @@ void deleteNode(Node *&head)
 {
 	if (!head)
 	{
-		cout << "The List is Empty!!" << endl;
+		cout << "The List is Empty!!!" << endl;
 		return;
 	}
 
@@ -166,7 +166,7 @@ int main()
 			cout << "exiting the program!!!" << endl;
 			return 0;
 		default:
-			cout << "Invalid Choice!!" << endl;
+			cout << "Invalid Choice!!!" << endl;
 		}
 	}
 	return 0;
