@@ -51,6 +51,7 @@ void searchValue(Node *&head)
 		}
 		currentNode = currentNode->next;
 	}
+	cout<<"No Such Value Found in the List!!!"<<endl;
 }
 void displayFromFront(Node *&head)
 {
