@@ -6,6 +6,7 @@
 #pragma comment(lib, "ws2_32.lib")
 
 using namespace std;
+int count=0;
 
 void HandleClient(SOCKET client)
 {
@@ -18,7 +19,7 @@ void HandleClient(SOCKET client)
         if (bytesRead > 0)
         {
             buffer[bytesRead] = '\0';
-            cout << "Received message from client: " << buffer << endl;
+            cout << "Received message from client"<<count+1<<": " << buffer << endl;
 
             if (strcmp(buffer, "bye") == 0 || strcmp(buffer, "BYE") == 0 || strcmp(buffer, "Bye") == 0 || strcmp(buffer, "Bye!!") == 0)
             {
@@ -26,7 +27,7 @@ void HandleClient(SOCKET client)
             }
 
             const char *response;
-            cout << "Enter response for client: ";
+            cout << "Enter response for client"<<count+1<<": ";
             cin.getline(buffer, sizeof(buffer));
             response = buffer;
 
@@ -38,7 +39,7 @@ void HandleClient(SOCKET client)
             }
         }
     } while (bytesRead > 0);
-
+    count++;
     closesocket(client);
 }
 
