@@ -47,7 +47,7 @@ int main(){
 			return 1;
 		}
 		cout<<"Connection accepted from "<<inet_ntoa(clientAddr.sin_addr)<<" : "<<ntohs(clientAddr.sin_port)<<endl;
-        
+        cout<<"hey client";
 
 
     }
