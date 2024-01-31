@@ -44,13 +44,11 @@ int main()
         cin.getline(buffer, sizeof(buffer));
         message = buffer;
         send(client, message, strlen(message), 0);
-        if (strcmp(message, "bye") == 0 || strcmp(message, "BYE") == 0 || strcmp(message, "Bye") == 0 || strcmp(message, "Bye!!") == 0)
-        {
+        if(message == "bye" || message == "BYE" || message == "Bye" || message == "Bye!!"){
             break;
         }
         bytesRead = recv(client, buffer, sizeof(buffer), 0);
-        if (strcmp(buffer, "bye") == 0 || strcmp(buffer, "BYE") == 0 || strcmp(buffer, "Bye") == 0 || strcmp(buffer, "Bye!!") == 0)
-        {
+        if(buffer == "bye" || buffer == "BYE" || buffer == "Bye" || buffer == "Bye!!"){
             break;
         }
         if (bytesRead > 0)

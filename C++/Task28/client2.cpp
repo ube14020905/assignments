@@ -34,13 +34,16 @@ int main()
         return 1;
     }
 
+    const char *name = "Client 2";
+    send(client, name, strlen(name), 0);
+
     char buffer[1024];
     int bytesRead;
 
     do
     {
         const char *message;
-        cout << "Enter message for server From client 2: ";
+        cout << "Enter message for server: ";
         cin.getline(buffer, sizeof(buffer));
         message = buffer;
         send(client, message, strlen(message), 0);
