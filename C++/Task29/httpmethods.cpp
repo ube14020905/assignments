@@ -37,7 +37,7 @@ std::string HttpMethods::httpGet(const std::string &url)
         }
     }
 
-    // curl_global_cleanup();
+    curl_global_cleanup();
 
     return response;
 }
@@ -47,7 +47,7 @@ std::string HttpMethods::httpPost(const std::string &url, const std::string &dat
     CURL *curl;
     CURLcode res;
 
-    // curl_global_init(CURL_GLOBAL_DEFAULT);
+    curl_global_init(CURL_GLOBAL_DEFAULT);
 
     curl = curl_easy_init();
     std::string response;
