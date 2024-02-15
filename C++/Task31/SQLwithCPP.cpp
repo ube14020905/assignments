@@ -14,8 +14,8 @@ int main() {
 
   conn = mysql_real_connect(conn, "localhost", "Stark", "Ube@1402", "db1", 3306, NULL, 0);
 
-  if (conn) {
-    // Insert data
+  if (conn) 
+  {
     string insert_query = "INSERT INTO Employee(e_id, e_name, e_dept, E_salary, E_xp) VALUES (7, 'Mahi', 'PHY', 800000.0, '17 Years')";
     int query_state = mysql_query(conn, insert_query.c_str());
 
@@ -23,7 +23,6 @@ int main() {
       cerr << "Insert query failed: " << mysql_error(conn) << endl;
     }
 
-    // Update data
     string update_query = "UPDATE Employee SET E_salary=80000 WHERE e_id=1";
     query_state = mysql_query(conn, update_query.c_str());
 
@@ -31,7 +30,6 @@ int main() {
       cerr << "Update query failed: " << mysql_error(conn) << endl;
     }
 
-    // Delete data
     string delete_query = "DELETE FROM Employee WHERE e_id=1";
     query_state = mysql_query(conn, delete_query.c_str());
 
@@ -39,7 +37,6 @@ int main() {
       cerr << "Delete query failed: " << mysql_error(conn) << endl;
     }
 
-    // Print data
     string select_query = "SELECT * FROM Employee";
     query_state = mysql_query(conn, select_query.c_str());
 
